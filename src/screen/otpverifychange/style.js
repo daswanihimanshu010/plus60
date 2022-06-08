@@ -2,16 +2,125 @@ import { ScaledSheet } from 'react-native-size-matters';
 import colors from '../../utils/colors';
 
 export const style = ScaledSheet.create({
-  borderStyleBase: {
-        width: 30,
-        height: 45
-      },
-    
-      borderStyleHighLighted: {
-        borderColor: colors.Charcole
-      },
+    viewStyle:{
+        flex:1,
+        backgroundColor:colors.whitelight
+    },btnback:{
+        width:'55@ms',
+        marginTop:'65@ms',
+        height:'55@ms',
+        backgroundColor:colors.Charcole,
+        borderRadius:'55@ms',
+        justifyContent:'center',
+        alignItems:'center',
+        alignSelf:'center',
+  
+    }, 
+    btn:{
+        width:'100%',
+        marginTop:'25@ms',
+        height:'45@ms',
+        height:'45@ms',
+        backgroundColor:colors.Charcole,
+        borderRadius:'8@ms',
+        justifyContent:'center',
+        alignItems:'center',
+        alignSelf:'center'
+
+    }, txtstyle11:{
+        color:colors.Charcole,
+        fontSize:'16@ms',
+        alignSelf:'center'
+    },phoneNumberView: {
+        width: '100%',
+        height: '40@ms',
+        backgroundColor: 'white',
+        marginVertical:'15@ms'
+    },txtstyle3:{
+        color:colors.Golden,
+        fontSize:'17@ms',
+        fontWeight:'300'
+    },
+    imgStyle1: {
+        
+        height:'50@mvs',
+        resizeMode:'contain',
+        width:'100@ms',
+    },
+    imgStyle2: {  
+        color:colors.Golden, 
+    },
+   
+    imgStyle3: {
+        height:'38@ms',
+        width:'38@ms',
+        borderRadius:'25@ms',
+        borderWidth:1,
+        borderColor:colors.white
+      
+    },
+   
+    stylelogo:{
+     
+        height:'130@mvs',
+        paddingHorizontal:'15@ms'
+    },
+    label:{
+        fontSize:'15@ms',
+        color:colors.Golden
+    },
+    field:{
+        width:'75%',
+        alignSelf:'center',
+        marginTop:'35@ms'
+        
+    },
+    card:{
+        backgroundColor:colors.white,
+        height:'580@mvs',
+        borderTopLeftRadius:'30@ms',
+        borderTopRightRadius:'30@ms',
+        flex:1
+    },
+    hdr:{
+        marginTop:'25@mvs',
+        fontWeight:'bold',
+        fontSize:'20@ms',
+        color:colors.black,
+    },
+    logout:{
+        alignItems:'center',
+    },
+    cardmenu:{
+        backgroundColor:colors.Golden,
+        alignSelf:'center',
+        width:'90%',
+        marginBottom:'25@mvs',
+        alignItems:'center',
+        paddingVertical:'12@ms',
+        borderRadius:'15@ms',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        elevation: 1,
+
+    },
+    menutext:{
+        fontSize:'15@ms',
+        color:'#403f3a',
+        fontWeight:'600'
+
+    },
+    txtstyle2:{
+        color:colors.Charcole,
+        fontSize:'15@ms',
+    },
+   
     otp:{width: '90%', height: '55@ms',alignSelf:'center'},
-      underlineStyleBase: {
+    
+    underlineStyleBase: {
         width:'55@ms',
         height: 45,
         borderWidth: 0,
@@ -23,104 +132,10 @@ export const style = ScaledSheet.create({
       underlineStyleHighLighted: {
         borderColor: colors.Charcole
       },
-    stylelogo:{
-      width:'100%',
-      paddingVertical:'14@ms',
-      alignItems:'center'
-    },
-    wrapp:{
-        height:'78%',
-    },
-    btnback:{
-      width:'55@ms',
-      marginTop:'65@ms',
-      height:'55@ms',
-      backgroundColor:colors.Charcole,
-      borderRadius:'55@ms',
-      justifyContent:'center',
-      alignItems:'center',
-      alignSelf:'center',
-
-  },
-    headerstyle:{
-      backgroundColor:colors.headerview,
-      justifyContent:'center',
-      alignItems:'center'
-    },
-    txtstyle1:{
-        color:colors.whitelight,
-        fontSize:'20@ms',
-        fontWeight:'300',
-        paddingVertical:'10@ms'
-    },
-    txtstyle3:{
-        color:colors.Golden,
-        fontSize:'17@ms',
-        fontWeight:'300'
-    },
-    field:{
-        width:'75%',
-        alignSelf:'center',
-        marginTop:'35@ms'
-        
-    },
-    txtstyle2:{
-        color:colors.Charcole,
-        fontSize:'15@ms',
-    },
-    input:{
-        width:'100%',
-        height:'40@ms',
-        marginTop:'3@ms',
-        marginBottom:'10@ms',
-        backgroundColor:colors.white,
-        borderRadius:'8@ms',
-        shadowColor:colors.shadow,
-        shadowOffset: { width: 1, height: 1 },
-        shadowOpacity:  0.9,
-        shadowRadius: 2,
-        elevation: 6,
-        color:colors.Charcole
-    },
-    btn:{
-        width:'100%',
-        marginTop:'25@ms',
-        height:'45@ms',
-        backgroundColor:colors.Charcole,
-        borderRadius:'8@ms',
-        justifyContent:'center',
-        alignItems:'center',
-
-    },
-
-
-
-
+  
+    
    
-    backgroundImage:{
-        flex:1,
-        resizeMode: 'cover',
-        
-      },
-      imgStyle: {
-        alignSelf : 'center',
-        height:'50%',
-        resizeMode:'contain',
-        width:'40%',
-       // marginTop:'10@ms'
-    },
-    imgStyle: {
-      alignSelf : 'center',
-      height:'60@ms',
-      resizeMode:'contain',
-      width:'60@ms',
-
-  },
-  imgStyle1: {
-      height:'95@ms',
-      resizeMode:'contain',
-      width:'105@ms',
-      marginTop:'-18@ms'
-  },
+   
+  
     
 })

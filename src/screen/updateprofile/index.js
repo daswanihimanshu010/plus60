@@ -449,18 +449,18 @@ export default function Humanbookcreate({navigation,route}) {
             <View  style={style.modalInner1}>
                 <View style={{flexDirection:'row'}}>
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);selectimgG()}}  style={{marginRight:moderateScale(30)}}>
-                    <MaterialIcons name='add-photo-alternate' color={colors.edit} size={moderateScale(55)} />
+                    <MaterialIcons name='add-photo-alternate' color={colors.Golden} size={moderateScale(55)} />
                     <Text style={style.camtxt}>Gallery</Text>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);selectimg()}} >
-                    <MaterialIcons name='add-a-photo' color={colors.edit}  size={moderateScale(55)}  />
+                    <MaterialIcons name='add-a-photo' color={colors.Golden}  size={moderateScale(55)}  />
                     <Text style={style.camtxt}>Camera</Text>
                   </TouchableOpacity>
                   
 
                 </View>
-                <TouchableOpacity style={{backgroundColor:colors.red,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
-                    <Text style={[style.camtxt,{color:colors.white}]}>Cancel</Text>
+                <TouchableOpacity style={{backgroundColor:colors.Charcole,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
+                    <Text style={[style.camtxt,{color:colors.Golden}]}>Cancel</Text>
                   </TouchableOpacity>
             </View>
          </View>

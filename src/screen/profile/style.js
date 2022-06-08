@@ -73,7 +73,8 @@ export const style = ScaledSheet.create({
         borderRadius:'55@ms',
         borderWidth:2,
         borderColor:colors.Charcole,
-        overflow:'hidden'
+        overflow:'hidden',
+        alignSelf:'center'
     },
     aboutheader:{
         color:colors.Charcole,

@@ -30,7 +30,7 @@ export default function About({navigation,route}) {
 
                         <View style={style.stylelogo}>
                             <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                            <TouchableOpacity  onPress={()=> navigation.navigate('HOME')} >
+                            <TouchableOpacity  onPress={()=> navigation.goBack()} >
                                 <AntDesign name='arrowleft' color={colors.Charcole}  size={moderateScale(25)} />
                             </TouchableOpacity>
                                 <Image style={style.imgStyle1} source={require('../../Assets/logo/logo2.png')}/> 

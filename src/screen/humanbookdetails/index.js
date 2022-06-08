@@ -12,8 +12,11 @@ import config from '../../server/config';
 import { moderateScale } from 'react-native-size-matters';
 import moment from 'moment';
 import BottamTab from '../../component/BottamTab';
+import Orientation from 'react-native-orientation-locker';
 
 export default function Humanbook({navigation,route}) {
+    const [isfullscreen, setisfullscreen] = useState(false);
+    
     const [comment, setcomment] = useState('');
     const [reply, setreply] = useState('');
     const [commentid, setcommentid] = useState('');
@@ -25,7 +28,21 @@ export default function Humanbook({navigation,route}) {
     const [fav, setfav] = useState(false);
     const [likes, setlike] = useState(false);
     const [des, showdes] = useState(false);
-    const favouriteremove = async () =>{
+    const fullscreen = async () =>{
+ console.log('fulll ')
+        if(!isfullscreen){
+            Orientation.lockToLandscape()
+
+        }else(
+             Orientation.lockToPortrait()
+        )
+
+
+        setisfullscreen( !isfullscreen )
+      
+    }
+
+        const favouriteremove = async () =>{
         const uid =await  AsyncStorage.getItem("u_id");
         var formdata = new FormData();
         formdata.append("act", "humanbook_favourite_history_remove");
@@ -352,8 +369,6 @@ export default function Humanbook({navigation,route}) {
       formdata.append("member_id",uid);
       formdata.append("act",'addhumanbookcomment');
     
-          
-
       var requestOptions = {
           method: 'POST',
           body: formdata,
@@ -374,8 +389,9 @@ export default function Humanbook({navigation,route}) {
         })
   
   }
-  const player = useRef();
     useEffect(() => {
+        Orientation.lockToPortrait()
+
         getraiting();
         getfav();
         getlike();
@@ -385,7 +401,22 @@ export default function Humanbook({navigation,route}) {
 return(
     <View style={style.viewStyle}>
         <StatusBar  hidden = {false}  translucent = {true}  backgroundColor={colors.Golden} />
-            <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={{flex:1}}>
+
+            { isfullscreen  ? ( 
+                  <View style={style.videosecfull}>
+                   
+                  <VideoPlayer
+                    paused={true}
+                    source={ { uri : config.fileserver+route.params.item.video}  }
+                    disableBack
+                    onEnterFullscreen={()=> fullscreen()  }
+                    
+                  />
+                    </View> 
+            ) : (
+
+          <View>
                 <View style={style.header}>
                     <TouchableOpacity  onPress={()=> navigation.navigate('Humanbook')} >
                         <AntDesign name='arrowleft' color={colors.Charcole}  size={moderateScale(25)} />
@@ -393,24 +424,13 @@ return(
                     <Text style={style.headertitle}>{route.params.item.hb_name}</Text>
                 </View> 
                 <View style={style.videosec}>
-                    {/* <Video
-                        source={ { uri : config.fileserver+route.params.item.video}  }
-                        style={{ width: '100%', height: '100%' }}
-                        resizeMode='contain'
-                        controls={true}
-                        ref={player}
-                        onLoad={() => { uri : config.fileserver+route.params.item.hb_file_name}}
-                    /> */}
+                   
                     <VideoPlayer
                     paused={true}
                     source={ { uri : config.fileserver+route.params.item.video}  }
                     disableBack
-                    
-                    // onEnterFullscreen={()=>
-                    //     navigation.navigate('Fullscreen',{'url':route.params.item.video})
-                    // }
-                  
-                    //   navigator={this.props.navigator}
+                
+                    onEnterFullscreen={()=> fullscreen()  }
                   
                     />
                 </View>  
@@ -461,7 +481,7 @@ return(
                      />
                         
                     </View>
-                <View style={style.detailssec1}>
+                {/* <View style={style.detailssec1}>
 
                     <TouchableOpacity onPress={()=> showdes(!des) } style={{flexDirection:'row',justifyContent:'space-between'}}>
                     {des ? (
@@ -478,23 +498,24 @@ return(
 
                         ) }
                     </TouchableOpacity>
-                </View>
+                </View> */}
                 
-                {des ? ( 
-                    <View style={style.detailssec}>
+               
+                    <View style={style.detailssec1}>
+                        
+                        <Text style={style.detailssectxt}>{route.params.item.hb_name} Posted on {moment(route.params.item.hb_cretae_date).format('Do MMMM YYYY')}</Text>
+                        <Text style={style.detailssectxt}>{route.params.item.hb_language}</Text>
                         <TouchableOpacity  onPress={()=> navigation.navigate('UserProfile',{'item':route.params.item,'path':'Humanbook'})} style={{flexDirection:'row'}}>
-                            {/* <Text style={style.detailssectxt}>{'Member name:'}</Text> */}
                              <View style={style.mmrdp}>
                                     <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
                                     source={{uri: config.fileserver+route.params.item.member_img}}
                                     /> 
-                             </View>
+                             </View> 
                             <Text style={style.detailssectxt}>{route.params.item.member_name}</Text>
                         </TouchableOpacity>
-                        <Text style={style.detailssectxt}>{route.params.item.hb_language}</Text>
 
                     </View> 
-                ) : null }
+            
                 { iscomment ? (
                      <View style={style.commentsec}>
                      <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -601,11 +622,13 @@ return(
                 </View>   
 
                     )}
-                    />
-                    
-                                 
+                    />            
+            </View>
+            )}
             </SafeAreaView>
+            { !isfullscreen ? (
             <BottamTab item={route} navigation={navigation} /> 
+            ) : null }
 
     </View>
 )

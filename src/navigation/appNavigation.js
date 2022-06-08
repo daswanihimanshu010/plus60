@@ -24,7 +24,6 @@ import Humanbook from '../screen/humanbook';
 import T_C from '../screen/T_C';
 import Humanbookcreate from '../screen/humanbookcreate';
 import Humanbookdetails from '../screen/humanbookdetails';
-import Fullscreen from '../screen/humanbookdetails/fullscreen';
 import Recorder from '../screen/humanbookcreate/recorder';
 import Programs from '../screen/programs';
 import updateprofile from '../screen/updateprofile';
@@ -37,7 +36,7 @@ import Inbox from '../screen/inbox';
 import About from '../screen/about';
 import UserProfile from '../screen/profile';
 import Addalert from '../screen/addalert';
-
+import Editalert from '../screen/editalert';
 
 
 const Stack = createStackNavigator();
@@ -174,6 +173,11 @@ function AppNavigation() {
         />
         <Stack.Screen
           options={{headerShown: false}}
+          name="Editalert"
+          component={Editalert}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
           name="Alert"
           component={Alert}
         />
@@ -182,12 +186,7 @@ function AppNavigation() {
           name="Inbox"
           component={Inbox}
         />
-         <Stack.Screen
-          options={{headerShown: false}}
-          name="Fullscreen"
-          component={Fullscreen}
-          
-        />
+         
          {/* ---------------------custom bottom tab------------------ */}
          <Stack.Screen
           options={{headerShown: false}}

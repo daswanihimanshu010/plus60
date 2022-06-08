@@ -18,8 +18,14 @@ const BottamTab = props => {
     if(uid != null){
       navigation.navigate(e);
     }else{
-      setShowModal(!showModal)
-      console.log('login')
+      if(e == 'About'){
+        navigation.navigate(e);
+
+      }else{
+        setShowModal(!showModal)
+ 
+      }
+   
     }
 
   }
@@ -69,7 +75,7 @@ const BottamTab = props => {
           <EvilIcons  color={item.name == 'Notification' ? '#d4af37': '#010101'}  name='bell' size={moderateScale(30)} />
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>checklogin('About')}>
-          <Ionicons  color={item.name == 'About' ? '#d4af37': '#010101'}  name='chatbox-ellipses-outline' size={moderateScale(25)} />
+          <AntDesign name='question' color={item.name == 'About' ? '#d4af37': '#010101'} size={moderateScale(25)} />
         </TouchableOpacity>
       </View>
     </View>

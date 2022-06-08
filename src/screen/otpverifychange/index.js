@@ -1,14 +1,17 @@
-import React, {useState, useRef, useContext, useEffect} from 'react';
-import {ImageBackground, View,Text, Image,TextInput, StatusBar,ToastAndroid,TouchableOpacity} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import config from '../../server/config';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import {style} from './style';
-import OTPInputView from '@twotalltotems/react-native-otp-input';
+import React, {useState, useEffect,useRef} from 'react';
+import { View,Text, Image, StatusBar,TextInput,ToastAndroid} from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
-import colors from '../../utils/colors';
+import {style} from './style'
 import { SafeAreaView } from 'react-native-safe-area-context';
-export default function Otpverify({navigation,route}) {
+import colors from '../../utils/colors';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import BottamTab from '../../component/BottamTab';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
+import PhoneInput from 'react-native-phone-number-input';
+import config from '../../server/config';
+export default function Humanbookcreate({navigation,route}) {
     const [otp, setotp] = useState('');
 
     const Otpverify = async () =>{
@@ -50,20 +53,43 @@ export default function Otpverify({navigation,route}) {
 
         
     }
-    
+    const [image, setimage] = useState(null);
+    const getdatauser = async () =>{
+        const u_img =  await AsyncStorage.getItem('u_img');
+        setimage(u_img);
+    }
+   
+    useEffect(() => {
+      getdatauser();  
+     }, [navigation]);
     return(
-            <ImageBackground source={require('../../Assets/logo/background.png')} style={style.backgroundImage} >
-                <StatusBar  hidden = {false}  translucent = {true}  backgroundColor="transparent" />
-                    <SafeAreaView>
+        <View style={style.viewStyle}>
+                <StatusBar  hidden = {false}  translucent = {true}  backgroundColor={colors.Golden} />
+                    <SafeAreaView style={{backgroundColor:colors.Golden,flex:1}}>
+
                         <View style={style.stylelogo}>
-                            <Image style={style.imgStyle} source={require('../../Assets/logo/favicon.png')}/>
-                            <Image style={style.imgStyle1} source={require('../../Assets/logo/plus602.png')}/> 
-                        </View>
-                        <View style={style.wrapp}>
-                            <View style={style.headerstyle}>
-                                <Text style={style.txtstyle1}>{'OTP Verification'}</Text>
+                            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                            <TouchableOpacity  onPress={()=> navigation.goBack()} >
+                                <AntDesign name='arrowleft' color={colors.Charcole}  size={moderateScale(25)} />
+                            </TouchableOpacity>
+                                <Image style={style.imgStyle1} source={require('../../Assets/logo/logo2.png')}/> 
+                                { image != null ? (
+                                        <Image style={style.imgStyle3} 
+                                            source={{uri: config.fileserver+image}}
+                                        /> 
+                                    ): (
+                                        <Image style={style.imgStyle3} source={require('../../Assets/icon/avtar.png')}/> 
+                                    )
+                                    }
                             </View>
-                            <View style={style.field}>
+                            <View style={style.logout}>
+                            <Text style={style.hdr}>{'OTP Verification'}</Text>
+                           
+                            </View>
+                        </View>
+                        <View style={style.card}>
+                          <ScrollView>
+                          <View style={style.field}>
                             <Text style={style.txtstyle2}>{'ENTER 4 DIGIT OTP'}</Text>
                                 
                             <OTPInputView
@@ -79,15 +105,17 @@ export default function Otpverify({navigation,route}) {
                                     <TouchableOpacity style={style.btn} onPress={()=>Otpverify()}>
                                         <Text style={style.txtstyle3}>{'VERIFY & CHANGE NUMBER'}</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity  onPress={()=>navigation.navigate('changenumber')} style={style.btnback}>
+                                    <TouchableOpacity  onPress={()=>navigation.goBack()} style={style.btnback}>
                                         <AntDesign name='arrowleft' size={moderateScale(25)} color={colors.Golden} />
                                     </TouchableOpacity>
                                 
                             </View>
-                            
-
+                          </ScrollView>
                         </View>
+                       
                     </SafeAreaView>
-            </ImageBackground>
+                    <BottamTab item={route} navigation={navigation} /> 
+
+        </View>
     )
 }

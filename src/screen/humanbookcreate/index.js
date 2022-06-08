@@ -183,20 +183,20 @@ export default function Humanbookcreate({navigation,route}) {
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);
                     selectVideo()
                     }}  style={{marginRight:moderateScale(30)}}>
-                    <MaterialIcons name='add-photo-alternate' color={colors.edit} size={moderateScale(55)} />
+                    <MaterialIcons name='add-photo-alternate' color={colors.Golden} size={moderateScale(55)} />
                     <Text style={style.camtxt}>Gallery</Text>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);
                         navigation.navigate('Recorder')
                     }} >
-                     <Ionicons name='videocam' color={colors.edit}  size={moderateScale(55)}  />
+                     <Ionicons name='videocam' color={colors.Golden}  size={moderateScale(55)}  />
                     <Text style={style.camtxt}>Camera</Text>
                   </TouchableOpacity>
                   
 
                 </View>
-                <TouchableOpacity style={{backgroundColor:colors.red,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
-                    <Text style={[style.camtxt,{color:colors.white}]}>Cancel</Text>
+                <TouchableOpacity style={{backgroundColor:colors.Charcole,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
+                    <Text style={[style.camtxt,{color:colors.Golden}]}>Cancel</Text>
                   </TouchableOpacity>
             </View>
          </View>
@@ -232,17 +232,8 @@ export default function Humanbookcreate({navigation,route}) {
                             </View>
                             <ScrollView horizontal={false}>
                                 <View style={style.lbl}>
-                                <TouchableOpacity onPress={()=>setShowModalimg(true)} style={{backgroundColor:colors.edit,alignItems:'center',paddingVertical:moderateScale(8),}}>
-                                    <Text style={[style.label,{color:colors.white}]}>{'Upload Video'}</Text>
-                                </TouchableOpacity>
-                                
-                                    
-                                    { textMessage1 != null ? (
-                                    <Text style={{width:'100%',alignSelf:'center',color:'#424242',marginTop:8}}>{textMessage}</Text>
-
-                                    ) : null }
-                                      <TextField
-                                    label='Topic'
+                                <TextField
+                                    label='Title'
                                     maxLength={20}
                                     style={style.input} 
                                     textColor={'#202020'}
@@ -251,7 +242,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     onChangeText={(name) =>
                                     setname(name)}
                                 />
-                                     <Text style={[style.label,{marginTop:moderateScale(8)}]}></Text>
+                                 <Text style={[style.label,{marginTop:moderateScale(8)}]}></Text>
                                 <MultiSelect
                                       hideTags
                                       items={language}
@@ -271,8 +262,19 @@ export default function Humanbookcreate({navigation,route}) {
                                       displayKey="name"
                                       searchInputStyle={{color: '#202020'}}
                                 />
-                              
-                                   
+                                <Text style={[style.label,{marginTop:moderateScale(8)}]}></Text>
+                                <TouchableOpacity onPress={()=>setShowModalimg(true)} style={{backgroundColor:colors.Charcole,alignItems:'center',paddingVertical:moderateScale(8),}}>
+                                    <Text style={[style.label,{color:colors.Golden}]}>{'Upload Video'}</Text>
+                                </TouchableOpacity>
+                                
+                                    
+                                    { textMessage1 != null ? (
+                                    <Text style={{width:'100%',alignSelf:'center',color:'#424242',marginTop:8}}>{textMessage}</Text>
+
+                                    ) : null }
+                                      
+                                    
+                            
                              
                                  <TouchableOpacity
                                  onPress={()=>submitdata()}

@@ -131,7 +131,7 @@ export const style = ScaledSheet.create({
     roundstyle:{
 
         backgroundColor:colors.blacklight,
-        height:'60@mvs',
+        height:'70@mvs',
         width:'95@ms',
         alignItems:'center',
         justifyContent:'center',

@@ -328,7 +328,12 @@ export default function Profiledetail({navigation}) {
           };
           const response = await fetch(config.serverURL, requestOptions);
           const json = await response.json();
-          setcity(json.data);
+          const sort = json.data;
+          sort.sort(function(a,b){
+       //     return parseInt(a.name)  - parseInt(b.distance);
+            return a.name.localeCompare(b.name);
+           })
+          setcity(sort);
         
         }; 
         
@@ -363,18 +368,17 @@ export default function Profiledetail({navigation}) {
             <View  style={style.modalInner1}>
                 <View style={{flexDirection:'row'}}>
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);selectimgG()}}  style={{marginRight:moderateScale(30)}}>
-                    <MaterialIcons name='add-photo-alternate' color={colors.edit} size={moderateScale(55)} />
+                    <MaterialIcons name='add-photo-alternate' color={colors.Golden6356565655643} size={moderateScale(55)} />
                     <Text style={style.camtxt}>Gallery</Text>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={()=>{setShowModalimg(false);selectimg()}} >
-                    <MaterialIcons name='add-a-photo' color={colors.edit}  size={moderateScale(55)}  />
+                    <MaterialIcons name='add-a-photo' color={colors.Golden}  size={moderateScale(55)}  />
                     <Text style={style.camtxt}>Camera</Text>
                   </TouchableOpacity>
-                  
 
                 </View>
-                <TouchableOpacity style={{backgroundColor:colors.red,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
-                    <Text style={[style.camtxt,{color:colors.white}]}>Cancel</Text>
+                <TouchableOpacity style={{backgroundColor:colors.Charcole,paddingHorizontal:moderateScale(5),paddingVertical:moderateScale(3),marginTop:moderateScale(8),borderRadius:moderateScale(5)}} onPress={()=>{setShowModalimg(false)}} >
+                    <Text style={[style.camtxt,{color:colors.Golden}]}>Cancel</Text>
                   </TouchableOpacity>
             </View>
          </View>
@@ -404,8 +408,8 @@ export default function Profiledetail({navigation}) {
                                 <Text style={{color:'#202020',fontSize:moderateScale(14)}}>{textMessage}</Text>
                                 ) : null}
                                 <TextField
-                                    label='*First Name'
-                                   
+                  
+                                    label={  <Text style={{color:colors.Charcole}}>{'First Name '}<Text style={{color:colors.red}}>*</Text> </Text>  }
                                     style={style.input} 
                                     textColor={'#202020'}
                                     baseColor={colors.Charcole}
@@ -424,7 +428,7 @@ export default function Profiledetail({navigation}) {
                                       setnamem(namem)}
                                 />
                                 <TextField
-                                    label='*Last Name'
+                                    label={  <Text style={{color:colors.Charcole}}>{'Last Name '}<Text style={{color:colors.red}}>*</Text> </Text>  }
                                    
                                     style={style.input} 
                                     textColor={'#202020'}
@@ -443,9 +447,10 @@ export default function Profiledetail({navigation}) {
                                       setemail(email)}
                                 />
                                
-                               
-                                <Text style={[style.label,{marginTop:moderateScale(15)}]}>*Date of Birth </Text> 
-                                
+                               <View style={[{marginTop:moderateScale(15),flexDirection:'row'}]} >
+                                <Text style={[style.label]}>Date of Birth </Text> 
+                                <Text style={[style.label,{color:colors.red}]}>*</Text> 
+                                </View>
                                 <TouchableOpacity onPress={()=>setOpen(true)}  style={style.dob}>
                                   <Text style={style.dobtext}>Select Date</Text> 
                                   <Text style={style.inputdate}>{selectdate}</Text>
@@ -469,8 +474,11 @@ export default function Profiledetail({navigation}) {
                                   }}
                                 />
                                 
-
-                                <Text style={style.label}>*Where do you stay? </Text> 
+                                <View style={[{flexDirection:'row'}]} >
+                                <Text style={[style.label]}>Where do you stay </Text> 
+                                <Text style={[style.label,{color:colors.red}]}>*</Text> 
+                                </View>
+                              
 
                                 <Text style={style.labelsub}> </Text> 
                                 <MultiSelect
@@ -482,14 +490,14 @@ export default function Profiledetail({navigation}) {
                                    selectedItems={[countryvl]}
                                     selectText="Select Country"
                                     searchInputPlaceholderText="Search Items..."
-                                    tagRemoveIconColor="#CCC"
-                                    tagBorderColor="#CCC"
-                                    tagTextColor="#CCC"
-                                    selectedItemTextColor="#CCC"
-                                    selectedItemIconColor="#CCC"
-                                    itemTextColor="#000"
+                                    tagRemoveIconColor={colors.Charcole}
+                                    tagBorderColor={colors.Charcole}
+                                    tagTextColor={colors.Charcole}
+                                    selectedItemTextColor={colors.Charcole}
+                                    selectedItemIconColor={colors.Charcole}
+                                    itemTextColor={colors.Charcole}
                                     displayKey="title"
-                                    searchInputStyle={{color: '#CCC'}}
+                                    searchInputStyle={{color:colors.Charcole}}
                                 />
                                 <Text style={style.labelsub}> </Text> 
 

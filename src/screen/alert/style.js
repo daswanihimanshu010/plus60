@@ -88,7 +88,7 @@ export const style = ScaledSheet.create({
     },
     weektxt1:{
         fontSize:'18@ms',
-        color:colors.orange
+        color:colors.edit
     },
     cardlist:{
         padding:'15@ms',
@@ -116,7 +116,7 @@ export const style = ScaledSheet.create({
         padding:'5@ms',
         backgroundColor:colors.Golden,
         borderRadius:'15@ms',
-        width:'30%',
+        width:'40%',
         
     },
     searchbar:{

@@ -145,7 +145,7 @@ export const style = ScaledSheet.create({
     },
     txt4:{
         color:colors.Charcole,
-        fontSize:'18@ms',
+        fontSize:'15@ms',
         fontWeight:'bold',
     },
     txt41:{

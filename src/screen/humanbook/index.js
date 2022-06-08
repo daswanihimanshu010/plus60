@@ -9,6 +9,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottamTab from '../../component/BottamTab';
+import Orientation from 'react-native-orientation-locker';
+import Moment from 'moment';
 
 import config from '../../server/config';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -286,10 +288,14 @@ export default function Humanbook({navigation,route}) {
         
     }
   useEffect(() => {
+    Orientation.lockToPortrait();
+
     navigation.addListener('focus',()=>{
         getdata();
         gethbsearch();
         getdatauser();
+    Orientation.lockToPortrait();
+
        })
         getdata();
         getdatauser();
@@ -308,7 +314,7 @@ export default function Humanbook({navigation,route}) {
          <View  style={style.modal}>
             <View  style={style.modalInner}>
                 <Text style={style.modaltitle}>{'Tips'}</Text>
-                <Text style={style.modalsubtitle}>{'1. Once you press SStart button, make sure your video covers your face and you do Voice Check.'}</Text>
+                <Text style={style.modalsubtitle}>{'1. Once you press Start button, make sure your video covers your face and you do Voice Check.'}</Text>
                 <Text style={style.modalsubtitle}>{'2. Prepare the script or points in advance before you record for better impact.'}</Text>
                 <Text style={style.modalsubtitle}>{'3. Anything more than 10 minutes may not be impactful, hence stick to a 10-minute restriction.'}</Text>
                 <Text style={style.modalsubtitle}>{'4. Mention your name, current location & about your career - 1 min.'}</Text>
@@ -468,6 +474,7 @@ export default function Humanbook({navigation,route}) {
                                                     <Text style={style.cardtxtstyle2} >{item.member_name}</Text>
                                                 </TouchableOpacity>
                                                 <Text style={style.cardtxtstyle2lang} >{item.hb_language}</Text>
+                                                <Text style={style.cardtxtstyle2lang} >{Moment(item.hb_cretae_date).format('Do MMMM YYYY')}</Text>
                                             </View>
                                             <View>
                                             { item.isfav ? (
@@ -505,6 +512,7 @@ export default function Humanbook({navigation,route}) {
                                                 <View style={style.cardtxt}>
                                                     <Text style={style.cardtxtstyle1} numberOfLines={1}>{item.hb_name}</Text>
                                                     <Text style={style.cardtxtstyle2lang} >{item.hb_language}</Text>
+                                                    <Text style={style.cardtxtstyle2lang} >{Moment(item.hb_cretae_date).format('Do MMMM YYYY')}</Text>
 
                                                 </View>
                                                
@@ -529,6 +537,8 @@ export default function Humanbook({navigation,route}) {
                                                         <Text style={style.cardtxtstyle2} >{item.member_name}</Text>
                                                     </TouchableOpacity>
                                                     <Text style={style.cardtxtstyle2lang} >{item.hb_language}</Text>
+                                                    <Text style={style.cardtxtstyle2lang} >{Moment(item.hb_cretae_date).format('Do MMMM YYYY')}</Text>
+
                                                 </View>
                                                 <View >
                                                 <TouchableOpacity

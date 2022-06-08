@@ -95,6 +95,12 @@ export const style = ScaledSheet.create({
         height:'200@mvs',
         alignItems:'center'
     },
+    videosecfull:{
+        backgroundColor:colors.Charcole,
+        width:'100%',
+        height:'100%',
+        alignItems:'center'
+    },
     detailssec1:{
         paddingHorizontal:'12@ms',
         paddingVertical:'5@ms'

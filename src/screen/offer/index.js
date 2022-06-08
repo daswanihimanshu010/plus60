@@ -311,7 +311,7 @@ const connect = async () =>{
                                         <View style={style.cardlist}>
                                             <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
-                                            <Text style={[style.txt4,{flex:1}]} numberOfLines={2}>{'Service type for '+item.for_whom_name}</Text>
+                                            <Text style={[style.txt4,{flex:1}]} numberOfLines={2}>{item.get_service_name+' For '+item.for_whom_name}</Text>
                                             <TouchableOpacity onPress={()=>{setmember_id(item.user_id);setshowAlert(true);}}>
                                                 
                                                 <FontAwesome size={moderateScale(25)} style={{color:'#746848'}}  name='location-arrow'  />
@@ -340,13 +340,13 @@ const connect = async () =>{
                                                 show={showAlert}
                                                 showProgress={false}
                                                 title="Alert"
-                                                message="do you want to send connection request?"
+                                                message="Do you want to connect / offer?"
                                                 closeOnTouchOutside={false}
                                                 closeOnHardwareBackPress={false}
                                                 showCancelButton={true}
                                                 showConfirmButton={true}
-                                                cancelText="No"
-                                                confirmText="Yes"
+                                                cancelText="Cancel"
+                                                confirmText="Ok"
                                                 messageStyle={{color:'#4B4E4F' }}
                                                 titleStyle={{color:'#4B4E4F'}}
                                                 cancelButtonStyle={{width:moderateScale(100)}}
@@ -404,8 +404,10 @@ const connect = async () =>{
                                 renderItem={({item, index}) => (
                                   <View>
                                   <View style={style.cardlist}>
-                                     
-                                            <Text style={style.txt4} numberOfLines={2}>{'Service type for '+item.for_whom_name}</Text>
+                                     { 
+                                     console.log('ljh',item)
+                                     }
+                                            <Text style={style.txt4} numberOfLines={2}>{item.get_service_name+' For '+item.for_whom_name}</Text>
                                             <Text style={style.txt3} numberOfLines={3}>{item.description}</Text>
                                             <View style={{flexDirection:'row'}}>
                                                 <View style={{ flex:1}}>

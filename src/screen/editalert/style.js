@@ -28,13 +28,6 @@ export const style = ScaledSheet.create({
         backgroundColor: '#00000040'
         
     },
-    modal1:{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        backgroundColor: '#00000040'
-        
-    },
     modalInner:{
         
         backgroundColor: '#FFFFFF',
@@ -44,6 +37,29 @@ export const style = ScaledSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around'
+      },
+      modalInner1:{
+        paddingHorizontal:'8@ms',
+        paddingVertical:'14@ms',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        width:'80%',
+        height:'300@ms'
+       
+      },
+      dtTxt:{
+        color:colors.Golden,
+        fontSize:'16@ms',
+        marginTop:'5@ms'
+      },
+      dtbtn:{
+        paddingVertical:'5@ms',
+        paddingHorizontal:'5@ms',
+        borderWidth:1,
+        marginTop:'5@ms',
+        borderRadius:'5@ms',
+        alignItems:'center',
+        borderColor:colors.Charcole
       },
     btn:{
         width:'80%',
@@ -77,29 +93,13 @@ export const style = ScaledSheet.create({
         borderWidth:1,
         borderColor:colors.white
       
-    }, modalInner1:{
-        paddingHorizontal:'8@ms',
-        paddingVertical:'14@ms',
-        backgroundColor: '#FFFFFF',
-        borderRadius: 10,
-        width:'80%',
-        height:'300@ms'
-       
-      },
-      dtTxt:{
-        color:colors.Golden,
-        fontSize:'16@ms',
-        marginTop:'5@ms'
-      },
-      dtbtn:{
-        paddingVertical:'5@ms',
-        paddingHorizontal:'5@ms',
-        borderWidth:1,
-        marginTop:'5@ms',
-        borderRadius:'5@ms',
-        alignItems:'center',
-        borderColor:colors.Charcole
-      },
+    },modal1:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        backgroundColor: '#00000040'
+        
+    },
     stylelogo:{
         paddingHorizontal:'15@ms',
         height:'130@mvs',
@@ -127,37 +127,10 @@ export const style = ScaledSheet.create({
         color:'#202020'
     },
     cardheader:{
-        paddingTop:'20@mvs',
+        paddingTop:'15@mvs',
         paddingHorizontal:'25@ms',
         flexDirection:'row',
-        justifyContent:'space-evenly'
-    },
-    radiobutton:{
-        height:'23@ms',
-        width:'23@ms',
-        borderRadius:'25@ms',
-        borderWidth:2,
-        borderColor:colors.Golden,
-        justifyContent:'center',
-        alignItems:'center'
-    },
-    radiobuttoninnder:{
-        height:'15@ms',
-        width:'15@ms',
-        borderRadius:'25@ms',
-        backgroundColor:colors.Golden
-    },
-    radiobuttoninnderoff:{
-        height:'15@ms',
-        width:'15@ms',
-        borderRadius:'25@ms',
-        backgroundColor:colors.white
-
-    },
-    txtredio:{
-        color:colors.Charcole,
-        fontSize:'14@ms',
-        marginTop:'5@ms'
+        justifyContent:'space-between'
     },
     iconf:{color:'red'},
 
