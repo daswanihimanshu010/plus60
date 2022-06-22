@@ -134,9 +134,9 @@ export const style = ScaledSheet.create({
 
   },
   imgStyle1: {
-      height:'95@ms',
-      resizeMode:'contain',
-      width:'105@ms',
+    height:'100@mvs',
+    resizeMode:'contain',
+    width:'190@ms',
       marginTop:'-18@ms'
   },
     

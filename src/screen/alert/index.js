@@ -63,9 +63,9 @@ const deletealert = async () => {
         .then(response => response.json())
         .then(responseJson =>{
             if(responseJson.status == 1){
-                ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                ToastAndroid.show('delete successfully',ToastAndroid.SHORT);
                 getdata();
-                getdataneed();
+              
             }else{
                 ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
             }
@@ -110,6 +110,7 @@ const isreapteSwitch = (e) =>{
                 if(responseJson.status == 1){
                     setdata(responseJson.data)
                 }else{
+                    setdata([])
                 }
         })
     }
@@ -232,7 +233,7 @@ const isreapteSwitch = (e) =>{
                                     }
                                 </TouchableOpacity>
                             </View>
-                            <View style={{flexDirection:'row',justifyContent:"space-between",marginTop:moderateScale(25)}}>
+                            <View style={{flexDirection:'row',justifyContent:"space-between",marginVertical:moderateScale(10)}}>
                             
                                 <Text style={style.hdr}>My Alerts</Text>
                                 <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>setShowModalmsg(!showModalmsg)} >
@@ -244,12 +245,20 @@ const isreapteSwitch = (e) =>{
                        
                             <TouchableOpacity style={style.cardheader} onPress={()=> navigation.navigate('Addalert')}  >
                                 <View style={{flexDirection:'row'}}>
-                                    <Text style={style.cardheadertxt}>{'Add Alert '}</Text>
+                                    <Text style={style.cardheadertxt}>{'Add alert '}</Text>
                                     <Entypo name='plus' size={moderateScale(25)} style={{color:colors.orange}}/> 
                                 </View>
                                 
                             </TouchableOpacity>
 
+                            
+                            { Object.keys(data).length == 0 ? (
+                                <View style={style.cardlist}>
+                                <View style={[style.cardtxt,{alignItems:'center'}]}> 
+                                            <Text style={style.txt1} numberOfLines={1}>{'Alerts not found'}</Text>
+                                </View>
+                            </View>
+                            ) : null}
                         <FlatList
                             style={{marginBottom:moderateScale(100)}}
                             data={data}
@@ -327,7 +336,7 @@ const isreapteSwitch = (e) =>{
                                                      show={showdelete}
                                                      showProgress={false}
                                                      title="Alert"
-                                                     message="do you want to delete it?"
+                                                     message="Do you want to delete it?"
                                                      closeOnTouchOutside={false}
                                                      closeOnHardwareBackPress={false}
                                                      showCancelButton={true}
@@ -364,9 +373,7 @@ const isreapteSwitch = (e) =>{
                                          </View>
                                                                           
                                          <View style={[style.address,{marginTop:moderateScale(10)}]}>
-                                        { 
-                                        console.log('jgjh',item.date.split('-')[0])
-                                        }
+                                        
                                             <Ionicons name='alarm-outline' size={moderateScale(20)} style={{color:'#952A4E'}}/> 
                                             <Text  style={style.txt4}>{  item.date.split('-')[1] } { Moment(new Date('1955-'+ (item.date.split('-')[0].length) == 1 ? 0 : '',item.date.split('-')[0],'-12')).format('MMMM') }</Text>
 
@@ -404,7 +411,7 @@ const isreapteSwitch = (e) =>{
                                                      show={showdelete}
                                                      showProgress={false}
                                                      title="Alert"
-                                                     message="do you want to delete it?"
+                                                     message="Do you want to delete it?"
                                                      closeOnTouchOutside={false}
                                                      closeOnHardwareBackPress={false}
                                                      showCancelButton={true}

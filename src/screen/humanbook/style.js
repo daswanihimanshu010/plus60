@@ -13,10 +13,9 @@ export const style = ScaledSheet.create({
         flex: 1,
     },
     imgStyle1: {
-        
-        height:'60@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'110@ms',
+        width:'190@ms',
     },modalInner:{
         width: '320@ms',
         backgroundColor: 'white',

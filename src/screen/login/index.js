@@ -1,5 +1,5 @@
 import React, {useState, useRef, useContext, useEffect} from 'react';
-import {ImageBackground, View,Text, Image,ScrollView,ActivityIndicator, StatusBar,TouchableOpacity,ToastAndroid,Modal} from 'react-native';
+import {ImageBackground, View,Text, Image,ScrollView,ActivityIndicator, StatusBar,TouchableOpacity,ToastAndroid,Modal,Button} from 'react-native';
 import {style} from './style'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -12,6 +12,7 @@ import colors from '../../utils/colors';
 export default function Login({navigation,route}) {
     const [phoneNumber, setPhoneNumber] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
 
     const phoneInput = useRef(null);
 
@@ -39,8 +40,9 @@ export default function Login({navigation,route}) {
 
             }else{
                 setShowModal(false)
-                navigation.navigate('Signup') 
-                ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                setShowModal1(true)
+                // navigation.navigate('Signup') 
+                // ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT); 
             }
       })
         
@@ -60,6 +62,44 @@ export default function Login({navigation,route}) {
                 </View>
             </View>
         </Modal>
+        <Modal
+         transparent={true}
+         visible={showModal1}
+         animationType={'slide'}
+          animationIn="slideInLeft"
+    
+         >
+       
+         <View  style={{backgroundColor: 'rgba(0,0,0,0.2)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,}}>
+            <View  style={{
+              width: moderateScale(320),
+              backgroundColor: 'white',
+              borderRadius: moderateScale(4),
+              borderColor: 'rgba(0, 0, 0, 0.1)',
+              overflow:'hidden',
+              paddingHorizontal:moderateScale(12),
+              paddingVertical:moderateScale(14),
+            }}>
+                <Text style={[{ fontSize:moderateScale(14),
+                                color:colors.Charcole,
+                                fontWeight:'400',
+                                alignSelf:'center',
+                                marginVertical:moderateScale(10)}]}>{'Mobile number not found please signup first!'}</Text>
+                {/* <Button color={colors.Golden}            
+                title='OK'
+                onPress={()=>setShowModal1(!showModal1)}
+                /> */}
+            <TouchableOpacity onPress={()=>setShowModal1(!showModal1)}>
+                <Text style={{backgroundColor:colors.Golden,paddingVertical:moderateScale(5),paddingHorizontal:moderateScale(12),alignSelf:'center',color:colors.Charcole,fontSize:moderateScale(12),fontWeight:'bold'}}>Ok</Text>
+            </TouchableOpacity>
+
+            </View>
+         </View>
+
+       </Modal>
                 <StatusBar  hidden = {false}  translucent = {true}  backgroundColor="transparent" />
                     <SafeAreaView style={{flex:1}}>
                         <View style={style.stylelogo}>
@@ -74,7 +114,8 @@ export default function Login({navigation,route}) {
                             <View style={style.field}>
                                 <PhoneInput
                                     ref={phoneInput}
-                                    defaultValue={phoneNumber}
+                            placeholder={'Phone number'}
+                            defaultValue={phoneNumber}
                                     //  defaultCode={RNLocalize.getCountry()}
                                     defaultCode='IN'
                                     layout="second"
@@ -88,7 +129,7 @@ export default function Login({navigation,route}) {
                                 />
                                 <TouchableOpacity
                                  onPress={()=>login()} style={style.btn}>
-                                        <Text style={style.txtstyle3}>{'LOGIN'}</Text>
+                                        <Text style={style.txtstyle3}>{'Login'}</Text>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity  onPress={()=>navigation.navigate('Onbording')} style={style.btnback}>

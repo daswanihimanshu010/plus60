@@ -83,19 +83,18 @@ export default function Humanbookcreate({navigation,route}) {
                                     }
                             </View>
                             <View style={style.logout}>
-                            <Text style={style.hdr}>{'OTP Verification'}</Text>
+                            <Text style={style.hdr}>{'OTP verification'}</Text>
                            
                             </View>
                         </View>
                         <View style={style.card}>
                           <ScrollView>
                           <View style={style.field}>
-                            <Text style={style.txtstyle2}>{'ENTER 4 DIGIT OTP'}</Text>
+                            <Text style={style.txtstyle2}>{'Enter 4 digit otp'}</Text>
                                 
                             <OTPInputView
                             style={style.otp}
                             onCodeChanged={code => setotp(code)}
-
                             pinCount={4}
                             autoFocusOnLoad
                             codeInputFieldStyle={style.underlineStyleBase}
@@ -103,7 +102,7 @@ export default function Humanbookcreate({navigation,route}) {
                            
                         />
                                     <TouchableOpacity style={style.btn} onPress={()=>Otpverify()}>
-                                        <Text style={style.txtstyle3}>{'VERIFY & CHANGE NUMBER'}</Text>
+                                        <Text style={style.txtstyle3}>{'Verify & Change number'}</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity  onPress={()=>navigation.goBack()} style={style.btnback}>
                                         <AntDesign name='arrowleft' size={moderateScale(25)} color={colors.Golden} />

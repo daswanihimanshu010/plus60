@@ -79,6 +79,7 @@ useEffect(() => {
                             <View style={style.field}>
                             <PhoneInput
                             ref={phoneInput}
+                            placeholder={'Phone number'}
                             defaultValue={phoneNumber}
                            // defaultCode={RNLocalize.getCountry()}
                             defaultCode={'IN'}
@@ -93,7 +94,7 @@ useEffect(() => {
                             />
                             
                                 <TouchableOpacity onPress={()=>signup()} style={style.btn}>
-                                    <Text style={style.txtstyle3}>{'SIGNUP'}</Text>
+                                    <Text style={style.txtstyle3}>{'Signup'}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity  onPress={()=>navigation.navigate('Onbording')} style={style.btnback}>
                                         <AntDesign name='arrowleft' size={moderateScale(25)} color={colors.Golden} />

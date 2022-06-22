@@ -61,8 +61,15 @@ export default function Humanbookcreate({navigation,route}) {
     { date:30, isSelect: false},
     { date:31, isSelect: false},
   ]);
-    const [d, setd] = useState(route.params.item.date.split('-')[1])
-    const [m, setm] = useState(Moment(new Date('1955-'+ (route.params.item.date.split('-')[0].length) == 1 ? 0 : '',route.params.item.date.split('-')[0],'-12')).format('MMMM'))
+    
+
+    
+    const [d, setd] = useState( route.params.item.slag == 'medicine'   ? 1 : route.params.item.date.split('-')[1])
+    const [m, setm] = useState( route.params.item.slag == 'medicine'   ? 'january' : Moment(new Date('1955-'+ (route.params.item.date.split('-')[0].length) == 1 ? 0 : '',route.params.item.date.split('-')[0],'-12')).format('MMMM'))
+  
+
+   
+  
     const [images, setimages] = useState(null);
     const getdatauser = async () =>{
         const u_img =  await AsyncStorage.getItem('u_img');
@@ -328,7 +335,7 @@ export default function Humanbookcreate({navigation,route}) {
                                 </TouchableOpacity>
                             </View>
                             
-                            <Text style={style.hdr}>Edit Alert</Text>
+                            <Text style={style.hdr}>Edit alert</Text>
                         </View>
                         <View style={style.card}>
                             <View style={style.cardheader}>
@@ -361,7 +368,7 @@ export default function Humanbookcreate({navigation,route}) {
                                       onSelectedItemsChange={setdata}
                                       selectedItems={[type]}
                                       selectText="Type"
-                                      searchInputPlaceholderText="Search Type"
+                                      searchInputPlaceholderText="Search type"
                                       tagRemoveIconColor="#202020"
                                       tagBorderColor="#202020"
                                       tagTextColor="#202020"
@@ -438,7 +445,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                 <Text style={style.txtstyle3}>{'SUBMIT'}</Text>
+                                 <Text style={style.txtstyle3}>{'Submit'}</Text>
                                  </TouchableOpacity>
                                  </View> ) : (
                                     <View style={style.lbl}>
@@ -465,7 +472,7 @@ export default function Humanbookcreate({navigation,route}) {
                                           onSelectedItemsChange={setdata}
                                           selectedItems={[type]}
                                           selectText="Type"
-                                          searchInputPlaceholderText="Search Type"
+                                          searchInputPlaceholderText="Search type"
                                           tagRemoveIconColor="#202020"
                                           tagBorderColor="#202020"
                                           tagTextColor="#202020"
@@ -525,12 +532,11 @@ export default function Humanbookcreate({navigation,route}) {
                                      <TouchableOpacity
                                      onPress={()=>submitdata()}
                                      style={style.btn}>
-                                     <Text style={style.txtstyle3}>{'SUBMIT'}</Text>
+                                     <Text style={style.txtstyle3}>{'Submit'}</Text>
                                      </TouchableOpacity>
                                      </View>
                                   ) }
 
-                               
                             </ScrollView>
 
                         </View>

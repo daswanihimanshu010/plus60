@@ -148,7 +148,7 @@ export default function Coupons({navigation,route}) {
                                     }
                                 </TouchableOpacity>
                             </View>
-                            <View style={{flexDirection:'row',justifyContent:"space-between",marginTop:moderateScale(25)}}>
+                            <View style={{flexDirection:'row',justifyContent:"space-between",marginVertical:moderateScale(10)}}>
                                 <Text style={style.hdr}>{'COUPONS/OFFERS'}</Text>
                                 <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>setShowModalmsg(!showModalmsg)} >
                                         <AntDesign name='questioncircle' size={20} style={style.iconf} />

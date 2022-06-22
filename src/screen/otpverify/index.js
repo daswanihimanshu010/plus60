@@ -113,10 +113,10 @@ export default function Otpverify({navigation,route}) {
                         </View>
                         <View style={style.wrapp}>
                             <View style={style.headerstyle}>
-                                <Text style={style.txtstyle1}>{'OTP Verification'}</Text>
+                                <Text style={style.txtstyle1}>{'OTP verification'}</Text>
                             </View>
                             <View style={style.field}>
-                            <Text style={style.txtstyle2}>{'ENTER 4 DIGIT OTP'}</Text>
+                            <Text style={style.txtstyle2}>{'Enter 4 digit otp'}</Text>
                                 
                             <OTPInputView
                             style={style.otp}
@@ -129,7 +129,7 @@ export default function Otpverify({navigation,route}) {
                            
                         />
                                     <TouchableOpacity style={style.btn} onPress={()=>Otpverify()}>
-                                        <Text style={style.txtstyle3}>{'VERIFY & LOGIN'}</Text>
+                                        <Text style={style.txtstyle3}>{'Verify & Login'}</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity  onPress={()=>navigation.navigate(route.params.path)} style={style.btnback}>
                                         <AntDesign name='arrowleft' size={moderateScale(25)} color={colors.Golden} />

@@ -42,10 +42,9 @@ export const style = ScaledSheet.create({
         fontWeight:'300'
     },
     imgStyle1: {
-        
-        height:'50@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'100@ms',
+        width:'190@ms',
     },
     imgStyle2: {  
         color:colors.Golden, 
@@ -61,8 +60,6 @@ export const style = ScaledSheet.create({
     },
    
     stylelogo:{
-     
-        height:'130@mvs',
         paddingHorizontal:'15@ms'
     },
     label:{
@@ -83,7 +80,7 @@ export const style = ScaledSheet.create({
         flex:1
     },
     hdr:{
-        marginTop:'25@mvs',
+        marginVertical:'10@mvs',
         fontWeight:'bold',
         fontSize:'20@ms',
         color:colors.black,

@@ -59,7 +59,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     }
                             </View>
                             <View style={style.logout}>
-                            <Text style={style.hdr}>{'Profile Settings'}</Text>
+                            <Text style={style.hdr}>{'Settings'}</Text>
                            
                             </View>
                         </View>
@@ -74,7 +74,7 @@ export default function Humanbookcreate({navigation,route}) {
                                 <Text style={style.menutext}>{'Membership'}</Text>
                               </TouchableOpacity>
                               <TouchableOpacity style={style.cardmenu}>
-                                <Text style={style.menutext}>{'ID Card'}</Text>
+                                <Text style={style.menutext}>{'ID card'}</Text>
                               </TouchableOpacity>
                               <TouchableOpacity style={style.cardmenu}>
                                 <Text style={style.menutext}>{'Transactions'}</Text>
@@ -82,7 +82,7 @@ export default function Humanbookcreate({navigation,route}) {
                               <TouchableOpacity 
                                 onPress={()=> navigation.navigate('changenumber')}
                                 style={style.cardmenu}>
-                                <Text style={style.menutext}>{'Change Number'}</Text>
+                                <Text style={style.menutext}>{'Change number'}</Text>
                               </TouchableOpacity>
                               <TouchableOpacity 
                                 onPress={()=>logout()}

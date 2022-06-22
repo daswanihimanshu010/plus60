@@ -436,75 +436,60 @@ return(
                 </View>  
                 <View style={style.likesec}>
                     {likes ? (
-                        <TouchableOpacity onPress={()=>likeremove()}>
-                        <AntDesign name='like1' color={colors.red}  size={moderateScale(25)} />
+                    <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={()=>likeremove()}>
                         <Text style={style.detailssectxt}>{totallike}</Text>
+                        <AntDesign name='like1' color={colors.red} style={{marginLeft:moderateScale(5)}} size={moderateScale(23)} />
+
                     </TouchableOpacity>
                     ) : (
-                        <TouchableOpacity onPress={()=>like()}>
-                        <AntDesign name='like2' color={colors.Golden}  size={moderateScale(25)} />
+                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={()=>like()}>
                         <Text style={style.detailssectxt}>{totallike}</Text>
+
+                        <AntDesign name='like1' color={colors.Charcole} style={{marginLeft:moderateScale(5)}} size={moderateScale(23)} />
                     </TouchableOpacity>
                     )}
                     
-                    <View>
-                        <FontAwesome name='comment-o' color={colors.Golden}  size={moderateScale(25)} />
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
                         <Text style={style.detailssectxt}>{totalcomment}</Text>
+                        <FontAwesome name='comment-o' color={colors.Golden} style={{marginLeft:moderateScale(5)}} size={moderateScale(23)} />
+
                     </View>
                     {fav ? (
-                        <TouchableOpacity  onPress={()=>favouriteremove()}  >
-                            <AntDesign name='heart'  color={colors.red}  size={moderateScale(25)}/> 
+                        <TouchableOpacity   onPress={()=>favouriteremove()}  >
+                            <AntDesign name='heart'  color={colors.red}  size={moderateScale(23)}/> 
                         </TouchableOpacity>
 
                     ) : (
                         <TouchableOpacity   onPress={()=>favourite()} >
-                            <AntDesign name='hearto'  color={colors.Golden}  size={moderateScale(25)}/> 
+                            <AntDesign name='heart'  color={colors.Charcole}  size={moderateScale(23)}/> 
                         </TouchableOpacity>
                     )}
 
                 </View> 
                     <View style={style.cardraiting}>
-
-                    <FlatList
+                        <View style={{flexDirection:'row'}}>
+                            <FlatList
                             horizontal={true}
                             data={hbraiting}
                             listKey={item => item.toString()}
                             keyExtractor={(item, index) => index.toString()}
                             renderItem={({item, index}) => (
-                                <View>
-                                    <TouchableOpacity style={{paddingHorizontal:moderateScale(5)}} onPress={()=>raiting(item.value)}>
-                                        <AntDesign name={item.israiting ? 'staro' : 'star'}  color={item.israiting ? colors.Golden : colors.red }  size={moderateScale(20)}/> 
-                                    </TouchableOpacity>
-                                </View>
-                            
-                     )}
-                     />
-                        
+                            <View>
+                            <TouchableOpacity style={{paddingHorizontal:moderateScale(4)}} onPress={()=>raiting(item.value)}>
+                            <AntDesign name={item.israiting ? 'star' : 'star'}  color={item.israiting ? colors.Charcole : colors.red }  size={moderateScale(20)}/> 
+                            </TouchableOpacity>
+                            </View>
+                            )}
+                            />
+                            <Text style={style.txtstar} >{route.params.item.hb_language}</Text>
+                            <Text style={style.txtstar} >{moment(route.params.item.hb_cretae_date, "YYYY-MM-DD hh:mm:ss").fromNow()}</Text>
+                        </View>
                     </View>
-                {/* <View style={style.detailssec1}>
-
-                    <TouchableOpacity onPress={()=> showdes(!des) } style={{flexDirection:'row',justifyContent:'space-between'}}>
-                    {des ? (
-                        <Text style={style.detailssectxt} > Show Less </Text>
-                     ) : (
-                        <Text style={style.detailssectxt} > Show More </Text>
-                     )}
-
-                        {des ? ( 
-                        <AntDesign name='caretup'  color={colors.green}  size={moderateScale(20)}/> 
-
-                        ) : (
-                        <AntDesign name='caretdown'  color={colors.Golden}  size={moderateScale(20)}/> 
-
-                        ) }
-                    </TouchableOpacity>
-                </View> */}
+               
                 
                
                     <View style={style.detailssec1}>
                         
-                        <Text style={style.detailssectxt}>{route.params.item.hb_name} Posted on {moment(route.params.item.hb_cretae_date).format('Do MMMM YYYY')}</Text>
-                        <Text style={style.detailssectxt}>{route.params.item.hb_language}</Text>
                         <TouchableOpacity  onPress={()=> navigation.navigate('UserProfile',{'item':route.params.item,'path':'Humanbook'})} style={{flexDirection:'row'}}>
                              <View style={style.mmrdp}>
                                     <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
@@ -553,75 +538,77 @@ return(
                 ) }
                
                 <FlatList
+                style={{marginBottom:moderateScale(440)}}
                         horizontal={false}
                         data={listcomment}
                         listKey={item => item.toString()}
                         keyExtractor={(item, index) => index.toString()}
                         renderItem={({item, index}) => (
-                            <View style={style.comments}>
-                            <View> 
-                                <View style={style.pic}>
-                                    { item.member_img == '' ? (
-                                <Feather name='user'  color={colors.Charcole}  size={moderateScale(25)}/> 
-                                            
-                                    ) : (
-                            <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
-                                                source={{uri: config.fileserver+item.member_img}}
-                                                /> 
-                                    )}
-                                    
-                                </View>
-                            </View>
-                    <View style={{flex:1}}>
+                        <View >
+                        <View style={style.comments}>
+                        <View> 
+                        <View style={style.pic}>
+                        { item.member_img == '' ? (
+                        <Feather name='user'  color={colors.Charcole}  size={moderateScale(25)}/> 
+
+                        ) : (
+                        <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
+                        source={{uri: config.fileserver+item.member_img}}
+                        /> 
+                        )}
+
+                        </View>
+                        </View>
+                        <View style={{flex:1}}>
                         <Text  style={style.commentstxtname}>{item.member_name} . {moment(item.hbc_comment_time, "YYYY-MM-DD hh:mm:ss").fromNow()}</Text>
                         <Text style={style.commentstxt}>{item.hbc_comment}</Text>
                         <TouchableOpacity onPress={()=> 
-                            {setiscomment(!iscomment)
-                                setcommentid(item.hbc_id)
-                            }
-                            } style={{alignSelf:'flex-end'}} > 
-                            <Text style={[style.commentstxt,{color:colors.Golden}]}>Reply</Text>
+                        {setiscomment(!iscomment)
+                        setcommentid(item.hbc_id)
+                        }
+                        } style={{alignSelf:'flex-end'}} > 
+                        <Text style={[style.commentstxt,{color:colors.Golden}]}>Reply</Text>
                         </TouchableOpacity>
-                          
-                       
+                               
 
-                                { item.reply != 'undefined' ? ( 
-                                    
-                                    <FlatList
-                                    style={{marginTop:moderateScale(8)}}
-                                    data={item.reply}
-                                    renderItem={({  item: innerItem ,index }) => (
-                                        
-                                        <View style={style.commentsre}>
-                                        <View> 
-                                            <View style={style.pic}>
-                                                { innerItem.member_img == '' ? (
-                                            <Feather name='user'  color={colors.Charcole}  size={moderateScale(25)}/> 
-                                                        
-                                                ) : (
-                                            <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
-                                                            source={{uri: config.fileserver+innerItem.member_img}}
-                                                            /> 
-                                                )}
-                                             
-                                            </View>
-                                        </View>
-                                     <View style={{flex:1}}>
+                        </View>
+                        </View> 
+                             { item.reply != 'undefined' ? ( 
+
+                                <FlatList
+                                style={{marginTop:moderateScale(2)}}
+                                data={item.reply}
+                                renderItem={({  item: innerItem ,index }) => (
+
+                                <View style={style.commentsre}>
+                                <View> 
+                                <View style={style.pic}>
+                                { innerItem.member_img == '' ? (
+                                <Feather name='user'  color={colors.Charcole}  size={moderateScale(25)}/> 
+
+                                ) : (
+                                <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
+                                source={{uri: config.fileserver+innerItem.member_img}}
+                                /> 
+                                )}
+
+                                </View>
+                                </View>
+                                <View style={{flex:1}}>
                                 <Text  style={style.commentstxtname}>{innerItem.member_name} . {moment(innerItem.date_time, "YYYY-MM-DD hh:mm:ss").fromNow()}</Text>
                                 <Text style={style.commentstxt}>{innerItem.reply}</Text>
 
-                                        </View>
-                                        </View>  
-                                    )}
-                                    keyExtractor={(innerItem) => innerItem.id}
-                                  />
-                                   
-                                ) : null }
-                       
-                    </View>
-                </View>   
+                                </View>
+                                </View>  
+                                )}
+                                keyExtractor={(innerItem) => innerItem.id}
+                                />
+
+                                ) : null }  
+            </View>
 
                     )}
+                    
                     />            
             </View>
             )}

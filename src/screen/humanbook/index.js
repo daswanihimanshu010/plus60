@@ -17,6 +17,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { moderateScale } from 'react-native-size-matters';
 
 export default function Humanbook({navigation,route}) {
+
+    const [shownotfound, setshownotfound] = useState(false);
+
     const [showModal, setShowModal] = useState(false);
     const [showModalmsg, setShowModalmsg] = useState(false);
     const [msg, setmsg] = useState('Your life lessons are no less than chapters of a book! Express yourself by recording videos and let others take inspiration from them while you may seek clues from other Human Books! Afterall, Sharing is Caring!');
@@ -380,12 +383,12 @@ export default function Humanbook({navigation,route}) {
                                 <TouchableOpacity
                                 onPress={()=>onpress1()}
                                 >
-                                <Text style={[style.typebutton,{backgroundColor: clr1,color: inbox ? colors.white : colors.Charcole  }]}>BookShelf</Text>
+                                <Text style={[style.typebutton,{backgroundColor: clr1,color: inbox ? colors.white : colors.Charcole  }]}>Bookshelf</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                 onPress={()=>onpress2()}
                                 >
-                                <Text style={[style.typebutton,{backgroundColor: clr2 ,color: outbox ? colors.white : colors.Charcole  }]}>Your Story</Text>
+                                <Text style={[style.typebutton,{backgroundColor: clr2 ,color: outbox ? colors.white : colors.Charcole  }]}>Your story</Text>
 
                                 </TouchableOpacity>
                                 <TouchableOpacity
@@ -434,7 +437,7 @@ export default function Humanbook({navigation,route}) {
                                 <Text style={style.cardheadertxt}>{'Tips how it works!'}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity  style={{flexDirection:'row'}}  onPress={()=> navigation.navigate('Humanbookcreate') }  >
-                                    <Text style={style.cardheadertxt}>{'Add Video '}</Text>
+                                    <Text style={style.cardheadertxt}>{'Add video '}</Text>
                                     <MaterialIcons name='add-a-photo' style={{color:colors.orange}} size={moderateScale(25)}  /> 
                                 </TouchableOpacity>
                             </View>
@@ -447,7 +450,11 @@ export default function Humanbook({navigation,route}) {
                                     />
                                 </View>
                             ) : null }
-                            
+                            {/* { shownotfound ? (
+                            <View style={[style.cardtxt]}>
+                                <Text style={[style.cardtxtstyle1,{alignSelf:'center'}]}>{'Humanbook not found'}</Text>
+                            </View>   ) :  null} */}
+                                
                             <FlatList
                             horizontal={false}
                             style={{marginBottom:moderateScale(210),marginTop: connection ? moderateScale(35) : moderateScale(0)}}
@@ -462,6 +469,7 @@ export default function Humanbook({navigation,route}) {
                                             { uname != item.member_id ? (
 
                                         <TouchableOpacity  onPress={()=> navigation.navigate('Humanbookdetails',{item})} style={style.cardlist}>
+                                            
                                             <View style={style.roundstyle}>
                                                 <Image style={{height:'100%',width:'100%',resizeMode:'cover',}} 
                                                 source={{uri: config.fileserver+item.hb_file_name}}

@@ -198,14 +198,14 @@ export default function Humanbookcreate({navigation,route}) {
                                     }
                                 </TouchableOpacity>
                             </View>
-                            <Text style={style.hdr}>{'Add Your Need'}</Text>
+                            <Text style={style.hdr}>{'Add your need'}</Text>
                         </View>
                         <View style={style.card}>
                         <ScrollView>
 
                             <View style={style.cardheader}>
                                 <View style={{flexDirection:'row'}}>
-                                <Text style={style.cardheadertxt}>{'I NEED'}</Text>
+                                <Text style={style.cardheadertxt}>{'I need'}</Text>
                                 </View>
                                
                             </View>
@@ -219,7 +219,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     onSelectedItemsChange={setserdata}
                                     selectedItems={serviceval}
                                     selectText="Services"
-                                    searchInputPlaceholderText="Search Services"
+                                    searchInputPlaceholderText="Search services"
                                     tagRemoveIconColor="#202020"
                                     tagBorderColor="#202020"
                                     tagTextColor="#202020"
@@ -239,8 +239,8 @@ export default function Humanbookcreate({navigation,route}) {
                                     uniqueKey="id"
                                     onSelectedItemsChange={setwhomedata}
                                     selectedItems={whomeval}
-                                    selectText={"For Whom"}
-                                    searchInputPlaceholderText="Search For Whom"
+                                    selectText={"For whom"}
+                                    searchInputPlaceholderText="Search for whom"
                                     tagRemoveIconColor="#202020"
                                     tagBorderColor="#202020"
                                     tagTextColor="#202020"
@@ -261,7 +261,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     onSelectedItemsChange={settypedata}
                                     selectedItems={[typeval]}
                                     selectText={"Type"}
-                                    searchInputPlaceholderText="Search Type"
+                                    searchInputPlaceholderText="Search type"
                                     tagRemoveIconColor="#202020"
                                     tagBorderColor="#202020"
                                     tagTextColor="#202020"
@@ -296,7 +296,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity 
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                    <Text style={style.txtstyle3}>{'ADD NEED'}</Text>
+                                    <Text style={style.txtstyle3}>{'Add need'}</Text>
                                  </TouchableOpacity>
                             </View>
                             </ScrollView>

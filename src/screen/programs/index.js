@@ -78,7 +78,25 @@ export default function Programs({navigation,route}) {
 
     })
     }
-    
+    const sendalert = async (e) =>{
+
+        const uid =await  AsyncStorage.getItem("u_id");
+        var formdata = new FormData();
+        formdata.append("act", "program_alert");
+        formdata.append("p_id", e);
+        formdata.append("user_id", uid);
+   
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+          };
+          fetch(config.serverURL, requestOptions)
+          .then(response => response.json())
+            .then(responseJson =>{
+               
+                    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+          })
+    }
         const sendstatus = async (e) =>{
 
         const uid =await  AsyncStorage.getItem("u_id");
@@ -215,7 +233,7 @@ export default function Programs({navigation,route}) {
                                     }
                                 </TouchableOpacity>
                             </View>
-                            <View style={{flexDirection:'row',justifyContent:"space-between",marginTop:moderateScale(25)}}>
+                            <View style={{flexDirection:'row',justifyContent:"space-between",marginVertical:moderateScale(10)}}>
                             
                                 <Text style={style.hdr}>PROGRAMS</Text>
                                 <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>setShowModalmsg(!showModalmsg)} >
@@ -287,8 +305,8 @@ export default function Programs({navigation,route}) {
                                          </TouchableOpacity>
                                         ) : (
                                         <TouchableOpacity 
-                                        disabled={true}
-                                        onPress={()=> sendstatus({'id':item.program_id,'status':1}) }
+                                       
+                                        onPress={()=> sendalert(item.program_id) }
                                         style={{width:'50%'}}>
                                          <Text style={style.txt5}>{'Set Alert'}</Text>
                                         </TouchableOpacity>

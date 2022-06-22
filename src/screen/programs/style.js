@@ -128,10 +128,9 @@ export const style = ScaledSheet.create({
         color:colors.Charcole
     },
     imgStyle1: {
-        
-        height:'60@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'110@ms',
+        width:'190@ms',
     },
     
     imgStyle3: {
@@ -152,7 +151,7 @@ export const style = ScaledSheet.create({
     },
     stylelogo:{
         paddingHorizontal:'15@ms',
-        height:'130@mvs',
+     
     },
    
     cardheader:{

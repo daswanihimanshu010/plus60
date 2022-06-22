@@ -14,7 +14,7 @@ export const style = ScaledSheet.create({
     },
     weektxt:{
         fontSize:'18@ms',
-        color:colors.Charcole
+        color:colors.Golden
     },
     weektxt1:{
         fontSize:'18@ms',

@@ -34,20 +34,20 @@ export default function About({navigation,route}) {
                                 <AntDesign name='arrowleft' color={colors.Charcole}  size={moderateScale(25)} />
                             </TouchableOpacity>
                                 <Image style={style.imgStyle1} source={require('../../Assets/logo/logo2.png')}/> 
-                                <TouchableOpacity   onPress={()=> navigation.navigate('profilemenu',{'path':'About'})}  >
+                                <TouchableOpacity disabled={true}  onPress={()=> navigation.navigate('profilemenu',{'path':'About'})}  >
 
-                                { image != null ? (
+                                {/* { image != null ? (
                                         <Image style={style.imgStyle3} 
                                             source={{uri: config.fileserver+image}}
                                         /> 
                                     ): (
                                         <Image style={style.imgStyle3} source={require('../../Assets/icon/avtar.png')}/> 
                                     )
-                                    }
+                                    } */}
                                 </TouchableOpacity>
                             </View>
                             
-                            <Text style={style.hdr}>About</Text>
+                            <Text style={[style.hdr,{marginVertical:moderateScale(10)}]}>About</Text>
                         </View>
                         <View style={style.card}>
                           
@@ -57,14 +57,12 @@ export default function About({navigation,route}) {
                                 
                                 <View style={style.cardtxt}>
                                 <Text style={style.cardtxtstyle1} >{'What is Plus60?'}</Text>
-                                    <Text style={style.cardtxtstyle2} >{'A mobile app for elderly who are sixty years and above. The app is a platform for them to engage, entertain, express and enjoy life for themselves.'}</Text>
+                                    <Text style={style.cardtxtstyle2} >A mobile app for elderly who are sixty years and above. The app is a platform for them to engage, entertain, express and enjoy life for themselves.</Text>
                                 </View>
                                 <View style={style.cardtxt}>
                                     <Text style={style.cardtxtstyle1} >{'What is inside Plus60?'}</Text>
-                                    <Text style={style.cardtxtstyle2} >Firstly, the app is meant for those who are minimum 60 years of age. Once registered, members get to CONNECT with like minded members and build their own network.
- There are PROGRAMS of engagement including offline and online entertainment like excursions, gatherings, plays, concerts, speeches of eminent personalities on health, 
-medicine & spirituality, compeititons, games etc. Members also get to express their life learning through HUMANBOOK or know from fellow members' videos.
- I NEED / I OFFER enables members to find engagement opportunities or seek help from others. There are ALERTS, COUPONS for gifts etc. as well.</Text>
+                                    <Text style={style.cardtxtstyle2} >Firstly, the app is meant for those who are minimum 60 years of age. Once registered, members get to CONNECT with like minded members and build their own network. There are PROGRAMS of engagement including offline and online entertainment like excursions, gatherings, plays, concerts, speeches of eminent personalities on health, medicine & spirituality, compeititons, games etc. Members also get to express their life learning through HUMANBOOK or know from fellow members' videos. I NEED / I OFFER enables members to find engagement opportunities or seek help from others. There are ALERTS, COUPONS for gifts etc. as well.
+</Text>
                                 </View>
                                 <TouchableOpacity  onPress={()=> navigation.navigate('T_C')} style={style.cardtxt}>
                                 <Text style={style.cardtxtstyle1} >{'How do I register as a member?'}</Text>
@@ -77,14 +75,12 @@ medicine & spirituality, compeititons, games etc. Members also get to express th
                                 </TouchableOpacity>
                                 <View style={style.cardtxt}>
                                     <Text style={style.cardtxtstyle1} >{'Is it FREE?'}</Text>
-                                    <Text style={style.cardtxtstyle2} >There are 3 types of memberships. Trial membership is FREE and available for 30 days. Members can choose to upgrade to Monthly Membership or Annual Membership at 
-Rs. 100 per month or Rs. 1000 per year respectively.</Text>
+                                    <Text style={style.cardtxtstyle2} >Yes, it is absolutely free.</Text>
                                 </View>
                                 <View style={style.cardtxt}>
                                     <Text style={style.cardtxtstyle1} >{'How is Plus60 different from other social media platforms?'}</Text>
-                                    <Text style={style.cardtxtstyle2} >Great question! Beyond 60 years of age or typically after completing work responsibilities, elderly need their own space too. While their kids and next of kins are busy
- living their own lives, elderly find it challenging to expect time share from them. Moreover, other social media platforms do not address issues specific to the elderly 
-and are overwhelming. Hence Plus60 - to make the elderly live for themselves. </Text>
+                                    <Text style={style.cardtxtstyle2} >Great question! Beyond 60 years of age or typically after completing work responsibilities, elderly need their own space too. While their kids and next of kins are busy living their own lives, elderly find it challenging to expect time share from them. Moreover, other social media platforms do not address issues specific to the elderly and are overwhelming. Hence Plus60 - to make the elderly live for themselves. 
+</Text>
                                 </View>
                                 <TouchableOpacity 
                                     onPress={()=> navigation.navigate('T_C')} style={style.cardtxt}>
@@ -93,9 +89,8 @@ and are overwhelming. Hence Plus60 - to make the elderly live for themselves. </
                                 </TouchableOpacity>
                                 <View style={style.cardtxt}>
                                     <Text style={style.cardtxtstyle1} >{'What are payment options available on Plus60?'}</Text>
-                                    <Text style={style.cardtxtstyle2} >Members are required to make online transactions only when absolutely necessary. Like, to upgrade membership, they will have to pay the membership charges online or make
- the payment by sharing the payment link to their kids and kins who will pay on member's behalf. All usual payment gateways are made available to members. 
-In most of other cases, we are trying to give members options to pay at the venue or location wherever possible to avoid online payment.</Text>
+                                    <Text style={style.cardtxtstyle2} >Members are required to make online transactions only when absolutely necessary. Like, to upgrade membership, they will have to pay the membership charges online or make the payment by sharing the payment link to their kids and kins who will pay on member's behalf. All usual payment gateways are made available to members. In most of other cases, we are trying to give members options to pay at the venue or location wherever possible to avoid online payment.  
+</Text>
                                 </View>
                                 <View style={style.cardtxt}>
                                     <Text style={style.cardtxtstyle1} >{'Is it available in Android as well as IOS?'}</Text>

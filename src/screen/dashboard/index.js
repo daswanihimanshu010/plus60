@@ -24,13 +24,13 @@ export default function Dashboard({navigation,route}) {
         const date = new Date();
         const hour = date.getHours()
         if( hour < 12 ){
-            setmsg('Good Morning');
+            setmsg('Good morning');
         }
-        if( hour < 16 && hour > 12 ){
-            setmsg('Good Afternoon');
+        if( (hour < 16 && hour > 12)  || (hour == 12)){
+            setmsg('Good afternoon');
         }
-        if( hour > 16 ){
-            setmsg('Good Evening');
+        if( hour => 16 ){
+            setmsg('Good evening');
         }
        }
     useEffect(() => {

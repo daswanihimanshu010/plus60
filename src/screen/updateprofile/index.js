@@ -489,8 +489,8 @@ export default function Humanbookcreate({navigation,route}) {
                             <TouchableOpacity
                             onPress={()=>logout()}
                             >
-                                  <FontAwesome  style={style.hdricon} name='power-off' size={moderateScale(25)}  color={colors.Charcole}/>
-                                {/* <Text style={style.hdr}>{'Logout'}</Text> */}
+                                  <FontAwesome name='power-off' size={moderateScale(25)}  color={colors.Charcole}/>
+                              
                             </TouchableOpacity>
                             </View>
                         </View>
@@ -531,7 +531,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     </TouchableOpacity>
                                     </View>
                                 <TextField
-                                    label='*Username'
+                                    label='Username*'
                                     placeholder={p1}
                                     placeholderTextColor="#202020" 
                                     style={style.input} 
@@ -556,7 +556,7 @@ export default function Humanbookcreate({navigation,route}) {
                                 <TouchableOpacity 
                                 onPress={()=>setOpen(true)}
                                 style={{flexDirection:'row',justifyContent:'space-between',marginTop:moderateScale(15)}}>
-                                <Text style={style.label}>*Date of birth</Text>
+                                <Text style={style.label}>Date of birth*</Text>
                                 <MaterialCommunityIcons name='calendar' size={30} style={{ color:'#202020' }} />
                                 </TouchableOpacity>
                                 <Text style={style.labeldob}>{selectdate}</Text>
@@ -579,7 +579,7 @@ export default function Humanbookcreate({navigation,route}) {
                                   }}
                                 />
                                 {/* <Text style={style.label}>State</Text> */}
-                                <Text style={style.label}>*Where do you stay? </Text> 
+                                <Text style={style.label}>Where do you stay?* </Text> 
                                 <MultiSelect
                                     hideTags
                                     items={country}
@@ -736,7 +736,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity 
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                 <Text style={style.txtstyle3}>{'update profile'}</Text>
+                                 <Text style={style.txtstyle3}>{'Update profile'}</Text>
 
                                  </TouchableOpacity>
                             </View>

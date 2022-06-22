@@ -86,7 +86,7 @@ export default function Humanbookcreate({navigation,route}) {
                                     }
                             </View>
                             <View style={style.logout}>
-                            <Text style={style.hdr}>{'Change Number'}</Text>
+                            <Text style={style.hdr}>{'Change number'}</Text>
                            
                             </View>
                         </View>
@@ -98,7 +98,7 @@ export default function Humanbookcreate({navigation,route}) {
                             <PhoneInput
                             ref={phoneInput}
                             defaultValue={phoneNumber}
-                            placeholder={'New Number'}
+                            placeholder={'New number'}
                             defaultCode={'IN'}
                             layout="second"
                             withShadow

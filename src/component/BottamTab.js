@@ -18,11 +18,18 @@ const BottamTab = props => {
     if(uid != null){
       navigation.navigate(e);
     }else{
+      
       if(e == 'About'){
         navigation.navigate(e);
 
       }else{
-        setShowModal(!showModal)
+        if(e == 'HOME'){
+          navigation.navigate('Onbording');
+  
+        }else{
+          setShowModal(!showModal)
+
+        }
  
       }
    

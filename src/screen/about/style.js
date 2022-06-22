@@ -54,10 +54,9 @@ export const style = ScaledSheet.create({
     },
     
     imgStyle1: {
-        
-        height:'50@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'100@ms',
+        width:'190@ms',
     },
    
     imgStyle3: {
@@ -72,7 +71,7 @@ export const style = ScaledSheet.create({
     
     stylelogo:{
         paddingHorizontal:'15@ms',
-        height:'130@mvs',
+    
     },
     cardheader:{
         paddingVertical:'25@mvs',
@@ -88,7 +87,6 @@ export const style = ScaledSheet.create({
     },
     hdr:{
         marginLeft:'15@ms',
-        marginTop:'25@mvs',
         fontWeight:'bold',
         fontSize:'25@ms',
         color:colors.black

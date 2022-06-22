@@ -14,11 +14,11 @@ export const style = ScaledSheet.create({
     },
     imgStyle1: {
         
-        height:'50%',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'40%',
+        width:'190@ms',
         alignSelf : 'center',
-        marginTop:'-18@ms'
+        marginTop:'-25@ms'
     },
   
     stylelogo:{

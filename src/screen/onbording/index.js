@@ -113,10 +113,10 @@ export default function Onbording({navigation,route}) {
                         <View style={style.stylebootam}>
                             <View style={style.stylewrap1}>
                             <TouchableOpacity style={style.btnstylelogin} onPress={()=>navigation.navigate('Login')}>
-                                <Text style={style.styletxt2}>{'LOGIN'}</Text>
+                                <Text style={style.styletxt2}>{'Login'}</Text>
                             </TouchableOpacity> 
                             <TouchableOpacity style={style.btnstylesignup} onPress={()=>navigation.navigate('Signup')}>
-                                <Text style={style.styletxt3}>{'SIGNUP'}</Text>
+                                <Text style={style.styletxt3}>{'Signup'}</Text>
                             </TouchableOpacity>
                                 
                             </View>

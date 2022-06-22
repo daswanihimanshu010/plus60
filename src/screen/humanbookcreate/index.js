@@ -227,7 +227,7 @@ export default function Humanbookcreate({navigation,route}) {
                         <View style={style.card}>
                             <View style={style.cardheader}>
                                 <View style={{flexDirection:'row'}}>
-                                <Text style={style.cardheadertxt}>{'MY STORY'}</Text>
+                                <Text style={style.cardheadertxt}>{'My story'}</Text>
                                 </View>
                             </View>
                             <ScrollView horizontal={false}>
@@ -251,7 +251,7 @@ export default function Humanbookcreate({navigation,route}) {
                                       onSelectedItemsChange={setlangdata}
                                       selectedItems={[langs]}
                                       selectText="Language of video"
-                                      searchInputPlaceholderText="Search Language"
+                                      searchInputPlaceholderText="Search language"
                                       tagRemoveIconColor="#202020"
                                       tagBorderColor="#202020"
                                       tagTextColor="#202020"
@@ -264,7 +264,7 @@ export default function Humanbookcreate({navigation,route}) {
                                 />
                                 <Text style={[style.label,{marginTop:moderateScale(8)}]}></Text>
                                 <TouchableOpacity onPress={()=>setShowModalimg(true)} style={{backgroundColor:colors.Charcole,alignItems:'center',paddingVertical:moderateScale(8),}}>
-                                    <Text style={[style.label,{color:colors.Golden}]}>{'Upload Video'}</Text>
+                                    <Text style={[style.label,{color:colors.Golden}]}>{'Upload video'}</Text>
                                 </TouchableOpacity>
                                 
                                     
@@ -279,7 +279,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                 <Text style={style.txtstyle3}>{'SUBMIT'}</Text>
+                                 <Text style={style.txtstyle3}>{'Submit'}</Text>
                                  </TouchableOpacity>
                                  </View>
                             </ScrollView>

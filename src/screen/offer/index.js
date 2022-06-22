@@ -59,7 +59,7 @@ export default function Offer({navigation,route}) {
             .then(response => response.json())
             .then(responseJson =>{
                 if(responseJson.status == 1){
-                    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                    ToastAndroid.show('delete successfully',ToastAndroid.SHORT);
                     getdata();
                     getdataneed();
                 }else{
@@ -109,7 +109,9 @@ export default function Offer({navigation,route}) {
                 if(responseJson.status == 1){
                     setList(responseJson.data);
                 }else{
-                    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                    setList([]);
+
+                   // ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
                 }
 
             })
@@ -135,7 +137,8 @@ fetch(config.serverURL, requestOptions)
       if(responseJson.status == 1){
          setListneed(responseJson.data);
       }else{
-          ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+      //    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+      setListneed([])
       }
 
 })
@@ -161,7 +164,7 @@ const connect = async () =>{
     formdata.append("act", "send_connection");
     formdata.append("member_id", uid);
     formdata.append("share_with_my_connection", member_id);
-    formdata.append("mag_request", 'This is I NEED');
+    formdata.append("mag_request", 'This is i need');
     var requestOptions = {
         method: 'POST',
         body: formdata,
@@ -190,7 +193,7 @@ const connect = async () =>{
         getdata();
         getdataneed();
         getdatauser();
-            getintrest();
+        getintrest();
 
     }, []);
 
@@ -210,7 +213,7 @@ const connect = async () =>{
             <View  style={style.modalInner}>
                 <Text style={[style.modalsubtitle,{marginBottom:moderateScale(10)}]}>{msg}</Text>
                 <Button color={colors.Golden}            
-                title='OK'
+                title='Ok'
                 onPress={()=>setShowModalmsg(!showModalmsg)}
                 />
             </View>
@@ -246,10 +249,10 @@ const connect = async () =>{
                             </View>
                             <View style={style.cardheader1}>
                             <TouchableOpacity onPress={()=>onpress2()}>
-                                <Text style={[style.typebutton,{backgroundColor: clr2 , color: !ineed ? colors.white : colors.Charcole }]}>I Need</Text>
+                                <Text style={[style.typebutton,{backgroundColor: clr2 , color: !ineed ? colors.white : colors.Charcole }]}>I need</Text>
                             </TouchableOpacity>
                             <TouchableOpacity  onPress={()=>onpress1()}  >
-                            <Text style={[style.typebutton,{backgroundColor: clr1  , color: ineed ? colors.white : colors.Charcole  }]}>I Offer</Text>
+                            <Text style={[style.typebutton,{backgroundColor: clr1  , color: ineed ? colors.white : colors.Charcole  }]}>I offer</Text>
                             </TouchableOpacity>
                             
                                 
@@ -291,13 +294,20 @@ const connect = async () =>{
                                 <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between'}} onPress={()=>
                                     navigation.navigate('Offercreate') 
                                 }  > 
-                                <Text style={style.cardheadertxt}>{'Add Your Need  '}</Text>
+                                <Text style={style.cardheadertxt}>{'Add your need  '}</Text>
                                 <Ionicons name='md-add' size={moderateScale(25)} style={{color:colors.orange}} /> 
                                 </TouchableOpacity>
                             </View>
                             )}
                             { ineed ? (
-                                 <FlatList
+                                <View>
+                                     { Object.keys(List).Listneed == 0 ? (
+                                        <View style={[style.cardlist,{alignItems:'center'}]}>
+                                            <Text style={[style.txt4]}>{'I offer not found'}</Text>
+                                        </View>
+                                     ) : null}
+
+                                    <FlatList
                                  style={{marginBottom:moderateScale(210)}}
                                  bounces={false}
                                  data={Listneed}
@@ -368,7 +378,7 @@ const connect = async () =>{
                     show={showok}
                     showProgress={false}
                     title="Alert"
-                    message="connection request sent successfully"
+                    message="Connection request sent successfully"
                     closeOnTouchOutside={false}
                     closeOnHardwareBackPress={false}
                     showCancelButton={false}
@@ -391,8 +401,16 @@ const connect = async () =>{
                        
                                   )}
                                  />
+                                </View>
+                                
 
                             ) : (
+                                <View>
+                                     { Object.keys(List).length == 0 ? (
+                                        <View style={[style.cardlist,{alignItems:'center'}]}>
+                                            <Text style={[style.txt4]}>{'I need not found'}</Text>
+                                        </View>
+                                     ) : null}
                                 <FlatList
                                 style={{marginBottom:moderateScale(210)}}
                                 bounces={false}
@@ -404,9 +422,7 @@ const connect = async () =>{
                                 renderItem={({item, index}) => (
                                   <View>
                                   <View style={style.cardlist}>
-                                     { 
-                                     console.log('ljh',item)
-                                     }
+                                 
                                             <Text style={style.txt4} numberOfLines={2}>{item.get_service_name+' For '+item.for_whom_name}</Text>
                                             <Text style={style.txt3} numberOfLines={3}>{item.description}</Text>
                                             <View style={{flexDirection:'row'}}>
@@ -439,7 +455,7 @@ const connect = async () =>{
                                                 show={showdelete}
                                                 showProgress={false}
                                                 title="Alert"
-                                                message="do you want to delete it?"
+                                                message="Do you want to delete it?"
                                                 closeOnTouchOutside={false}
                                                 closeOnHardwareBackPress={false}
                                                 showCancelButton={true}
@@ -470,6 +486,8 @@ const connect = async () =>{
                       
                                  )}
                                 />
+                                </View>
+
                             ) }
                             
                            

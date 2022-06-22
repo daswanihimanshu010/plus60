@@ -17,9 +17,9 @@ export const style = ScaledSheet.create({
         backgroundColor:colors.whitelight
     },
     imgStyle1: {
-        height:'60@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'110@ms',
+        width:'190@ms',
     },
    
     imgStyle3: {

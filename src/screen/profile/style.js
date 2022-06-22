@@ -14,9 +14,9 @@ export const style = ScaledSheet.create({
     
     imgStyle1: {
         
-        height:'50@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'100@ms',
+        width:'190@ms',
     },
     imgStyle2: {
         

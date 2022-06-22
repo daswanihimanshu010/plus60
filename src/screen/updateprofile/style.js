@@ -49,10 +49,9 @@ export const style = ScaledSheet.create({
         marginTop:'35@mvs'
     },
     imgStyle1: {
-        
-        height:'50@mvs',
+        height:'100@mvs',
         resizeMode:'contain',
-        width:'100@ms',
+        width:'190@ms',
     },
    
     txtstyle3:{
@@ -69,20 +68,19 @@ export const style = ScaledSheet.create({
         borderColor:colors.white
     },
     logout:{flexDirection:'row',justifyContent:'space-between',
-    marginHorizontal:'15@ms',
-}, labelhead:{
+        marginVertical:'10@ms',
+        marginHorizontal:'15@ms'},
+    labelhead:{
     alignSelf:'center',
     padding:'5@ms',
     fontSize:'15@ms',
     color:'#202020',
     marginVertical:'8@ms',
     fontWeight:'bold',
-    borderColor:colors.Golden,
-    borderWidth:1
+
 },
     stylelogo:{
      
-        height:'130@mvs',
         paddingHorizontal:'15@ms'
     },
     label:{
@@ -160,15 +158,11 @@ export const style = ScaledSheet.create({
         flex:1
     },
     hdr:{
-        marginTop:'25@mvs',
         fontWeight:'bold',
         fontSize:'20@ms',
         color:colors.black
     },
-    hdricon:{
-        marginTop:'25@mvs',
-        
-    },
+   
     cardlist:{
         flexDirection:'row',
         width:'90%',

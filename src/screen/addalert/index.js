@@ -74,7 +74,7 @@ export default function Humanbookcreate({navigation,route}) {
         setimages(u_img);
     }
 
-    const [days, setdays] = useState(["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]);
+    const [days, setdays] = useState(["NUN", "NUN", "NUN", "NUN", "NUN", "NUN", "NUN"]);
     const [name, setname] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [showModal1, setShowModal1] = useState(false);
@@ -326,11 +326,11 @@ export default function Humanbookcreate({navigation,route}) {
                                 </TouchableOpacity>
                             </View>
                             
-                            <Text style={style.hdr}>Add Alert</Text>
+                            <Text style={style.hdr}>Add alert</Text>
                         </View>
                         <View style={style.card}>
                             <View style={style.cardheader}>
-                              <View>
+                              <View style={{alignItems:'center'}}>
                                 <TouchableOpacity onPress={()=>{ settype('') ; setradio(true) }} style={style.radiobutton}>
                                     <View style={ radio ?  style.radiobuttoninnder : style.radiobuttoninnderoff }>
 
@@ -338,7 +338,7 @@ export default function Humanbookcreate({navigation,route}) {
                                   </TouchableOpacity>
                                   <Text style={style.txtredio}>Daily Reminder</Text>
                               </View>
-                               <View>
+                               <View style={{alignItems:'center'}}>
                                 <TouchableOpacity onPress={()=> { settype('') ; setradio(false)} } style={style.radiobutton}>
                                   <View style={ !radio ?  style.radiobuttoninnder : style.radiobuttoninnderoff }>
 
@@ -448,7 +448,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                 <Text style={style.txtstyle3}>{'SUBMIT'}</Text>
+                                 <Text style={style.txtstyle3}>{'Submit'}</Text>
                                  </TouchableOpacity>
                                  </View>
 
@@ -537,7 +537,7 @@ export default function Humanbookcreate({navigation,route}) {
                                  <TouchableOpacity
                                  onPress={()=>submitdata()}
                                  style={style.btn}>
-                                 <Text style={style.txtstyle3}>{'SUBMIT'}</Text>
+                                 <Text style={style.txtstyle3}>{'Submit'}</Text>
                                  </TouchableOpacity>
                                  </View>
 

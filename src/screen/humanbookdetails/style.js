@@ -15,12 +15,18 @@ export const style = ScaledSheet.create({
     },
     cardraiting:{
         flexDirection:'row',
-        paddingHorizontal:'45@ms',
-        justifyContent:'space-around',
         paddingVertical:'5@ms',
         marginBottom:'3@ms',
         borderBottomWidth:1,
         borderBottomColor:colors.Golden,
+        justifyContent:'center'
+
+    },
+    txtstar:{
+        fontSize:'12@ms',
+        color:colors.Charcole,
+        marginLeft:'8@ms',
+        fontWeight:'400'
     },
     viewStyle:{
         flex:1,
@@ -117,17 +123,17 @@ export const style = ScaledSheet.create({
     likesec:{
         justifyContent:'space-around',
         flexDirection:'row',
-        paddingVertical:'4@ms',
+        paddingVertical:'2@ms',
         borderWidth:1,
         borderColor:colors.Golden
     },
     comments:{
         paddingHorizontal:'14@ms',
         paddingVertical:'12@ms',
-        width:'90%',
+        width:'95%',
         alignSelf:'center',
    
-        borderRadius:'8@ms',
+        borderRadius:'1@ms',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -135,23 +141,24 @@ export const style = ScaledSheet.create({
         },
         elevation: 1,
         marginBottom:'12@mvs',
-        flexDirection:'row'
+        flexDirection:'row',
     },
     commentsre:{
         paddingHorizontal:'14@ms',
         paddingVertical:'12@ms',
-        width:'100%',
-        alignSelf:'center',
-   
-        borderRadius:'8@ms',
+        width:'85%',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 0,
         },
+        borderRadius:'1@ms',
         elevation: 1,
-        marginBottom:'12@mvs',
-        flexDirection:'row'
+        marginBottom:'10@mvs',
+        flexDirection:'row',
+        alignSelf:'flex-end',
+        marginRight:'12@ms',
+
     },
     commentstxt:{
         fontSize:'12@ms',

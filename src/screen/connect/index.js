@@ -99,7 +99,7 @@ export default function Connect({navigation,route}) {
                 if(responseJson.status == 1){
                     setconnectiondata(responseJson.data);
                 }else{
-                    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                   // ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
                 }
       
           })
@@ -124,7 +124,7 @@ export default function Connect({navigation,route}) {
                 if(responseJson.status == 1){
                   setLists(responseJson.data);
                 }else{
-                    ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+                 //   ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
                 }
       
           })
@@ -318,7 +318,7 @@ export default function Connect({navigation,route}) {
                 setList(arr1);
 
             }else{
-                ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
+             //   ToastAndroid.show(responseJson.msg,ToastAndroid.SHORT);
             }
   
       })
@@ -653,13 +653,13 @@ export default function Connect({navigation,route}) {
                           { item.is_share_share_with_my_connection == 1 ? (
                                <TouchableOpacity 
                                style={[style.cardtxt,{borderColor:colors.green}]}>
-                                   <Text style={[style.cardtxt2]}>{'Already Share'}</Text>
+                                   <Text style={[style.cardtxt2]}>{'Already share'}</Text>
                                </TouchableOpacity>
                           ) : (
                               <TouchableOpacity 
                               onPress={()=>sharecontact1({"connect_id":item.connect_id,"member_id":item.member_id})}
                               style={[style.cardtxt,{borderColor:colors.Golden}]}>
-                                  <Text style={[style.cardtxt2]}>{'Share Contact'}</Text>
+                                  <Text style={[style.cardtxt2]}>{'Share contact'}</Text>
                               </TouchableOpacity>
                           )}
                          
@@ -670,13 +670,13 @@ export default function Connect({navigation,route}) {
                   { item.is_share_member_id == 1 ? (
                       <TouchableOpacity 
                       style={[style.cardtxt,{borderColor:colors.green}]}>
-                          <Text style={style.cardtxt2}>{'Already Share'}</Text>
+                          <Text style={style.cardtxt2}>{'Already share'}</Text>
                       </TouchableOpacity>
                   ) : (
                       <TouchableOpacity 
                       onPress={()=>sharecontact2({"connect_id":item.connect_id,"share_with_my_connection":item.share_with_my_connection})}
                       style={[style.cardtxt,{borderColor:colors.Golden}]}>
-                          <Text style={style.cardtxt2}>{'Share Contact'}</Text>
+                          <Text style={style.cardtxt2}>{'Share contact'}</Text>
                       </TouchableOpacity> 
                   )}
                   </View>
